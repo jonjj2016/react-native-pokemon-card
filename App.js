@@ -1,11 +1,14 @@
 import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Text, SafeAreaView, Platform } from 'react-native'
 import PokemonCard from './components/PokemonCard'
+import pokemonData from './data'
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <PokemonCard />
+      {Object.keys(pokemonData).map((pokemon) => {
+        return <PokemonCard key={pokemon.name} {...pokemonData[pokemon]} />
+      })}
     </SafeAreaView>
   )
 }
