@@ -7,8 +7,13 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-        {Object.keys(pokemonData).map((pokemon) => {
-          return <PokemonCard key={pokemon.name} {...pokemonData[pokemon]} />
+        {Object.keys(pokemonData).map((pokemon, index) => {
+          return (
+            <PokemonCard
+              key={pokemon.name + pokemon.hd + '-' + index}
+              {...pokemonData[pokemon]}
+            />
+          )
         })}
       </ScrollView>
     </SafeAreaView>
